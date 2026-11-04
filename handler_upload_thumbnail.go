@@ -79,7 +79,7 @@ func (cfg *apiConfig) handlerUploadThumbnail(w http.ResponseWriter, r *http.Requ
 	}
 
 	imageType := strings.Split(mediaType, "/")
-	var random []byte
+	random := make([]byte, 32)
 	rand.Read(random)
 	randFileName := base64.RawURLEncoding.EncodeToString(random)
 
